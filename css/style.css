@@ -12,6 +12,7 @@ body {
     font-family: Bebas;
     font-size: 20vw;
     color: #fff;
+    display: none;
 }
 
 #title > span {
@@ -32,7 +33,18 @@ body {
 
 .page {
     position: absolute;
+    z-index: 5;
     top: -100vh;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+#red-panel {
+    position: absolute;
+    background-color: #e23636;
+    z-index: 10;
+    top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;

@@ -16,12 +16,13 @@ pages = [
 ];
 t = new TimelineLite({paused:true});
 
-function loopPages(url, i){
+function loopPages(url, i, array){
   var page = $("<div/>", {
     class : "page",
     style: "background-image:url('" + url + "');background-repeat:no-repeat;background-size:cover"
   }).appendTo(container);
   t.to(page, 0.5, {transform: 'translateY(100vh)', ease:Power1.easeOut}, (i*0.5));
+  console.log(array.length);
 }
 
 function addPages(){
