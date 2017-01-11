@@ -8,11 +8,13 @@ body {
 }
 
 #title {
+    position: absolute;
+    z-index: 15;
     text-align: center;
     font-family: Bebas;
     font-size: 20vw;
     color: #fff;
-    display: none;
+    opacity: 0;
 }
 
 #title > span {
@@ -42,7 +44,8 @@ body {
 
 #red-panel {
     position: absolute;
-    background-color: #e23636;
+    background-color: #000;
+    opacity: 1;
     z-index: 10;
     top: 0;
     left: 0;
