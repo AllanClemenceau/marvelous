@@ -7,30 +7,51 @@ body {
     background-color: #e23636;
 }
 
+#main-container {
+    overflow: hidden;
+}
+
 #title {
     position: absolute;
+    left: 0;
+    width: 100vw;
     z-index: 15;
     text-align: center;
     font-family: Bebas;
-    font-size: 20vw;
+    font-size: 18vw;
     color: #fff;
     opacity: 0;
 }
 
+#title-la {
+    color: #000;
+}
+
+#title-ous {
+    color: #000;
+}
+
+#title > span:first-child {
+    margin-right: 3vw;
+}
 #title > span {
     letter-spacing: -2.4vw;
 }
 
-#title > span + span {
+#title > span + span + span {
     letter-spacing: -3.2vw;
 }
 
-#title > span + span + span {
+#title > span + span + span + span {
     letter-spacing: -2vw;
 }
 
-#title > span + span + span + span {
+#title > span + span + span + span + span {
     letter-spacing: -1vw;
+}
+
+#title > span + span + span + span + span + span {
+    letter-spacing: -2.4vw;
 }
 
 .page {
