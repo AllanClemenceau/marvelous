@@ -1,0 +1,28 @@
+var app = new Vue({
+  el: '#myContent',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+
+var t, add, pages, container;
+
+add = $("#add");
+container = $("#main-container");
+pages = ["blue", "orange", "green"];
+t = new TimelineLite({paused:true});
+
+function loopPages(url, i){
+  var page = $("<div/>", {
+    class : "page",
+    style: "background:url('" + url + "') no-repeat cover center"
+  }).appendTo(container);
+  t.to(page, 1, {transform: 'translateY(100vh)', ease:Power1.easeOut}, (i*0.5));
+}
+
+function addPages(){
+  pages.forEach(loopPages);
+  t.play();
+}
+
+add.click(addPages);

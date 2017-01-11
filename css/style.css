@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "Bebas";
+    src: url('../font/bebas.ttf');
+}
+
+body {
+    background-color: #e23636;
+}
+
+#title {
+    text-align: center;
+    font-family: Bebas;
+    font-size: 20vw;
+    color: #fff;
+}
+
+#title > span {
+    letter-spacing: -2.4vw;
+}
+
+#title > span + span {
+    letter-spacing: -3.2vw;
+}
+
+#title > span + span + span {
+    letter-spacing: -2vw;
+}
+
+#title > span + span + span + span {
+    letter-spacing: -1vw;
+}
+
+.page {
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
