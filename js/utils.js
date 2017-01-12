@@ -1,9 +1,9 @@
-// var app = new Vue({
-//   el: '#myContent',
-//   data: {
-//     message: 'Hello Vue!'
-//   }
-// })
+var app = new Vue({
+  el: '#myContent',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
 
 var t, pages, container, redPanel, title, titleLa, titleOus, isTitleVisible, isStapeThree;
 
@@ -60,7 +60,7 @@ function loopPages(url, i, array){
     isStapeThree = true;
     startingPoint = (i*0.5 - (0.5/array.length)*i*16);
     t.to(redPanel, 0.5, {opacity: 1, ease:SlowMo.easeOut}, startingPoint);
-  } else if (i > (array.length/2)) {
+  } else if (i > (array.length/3)) {
     startingPoint = (i*0.5 - (0.5/array.length)*i*14);
     if (i < (array.length/(3/2))) {
         t.fromTo(title, 1, {opacity: 0}, {opacity: 1}, startingPoint);
@@ -82,5 +82,5 @@ function addPages(){
 }
 
 $(function() {
-    addPages();
+    // addPages();
 });

@@ -7,8 +7,34 @@ body {
     background-color: #e23636;
 }
 
+.content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://soundlandscapes.files.wordpress.com/2011/01/024.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    overflow: hidden;
+}
+
+#characters {
+    width: 100vw;
+    height: 100vh;
+}
+
+#batman {
+    position: absolute;
+    bottom: 10vh;
+    left: 10vw;
+    width: 20vw;
+    height: auto;
+    cursor: pointer;
+}
+
 #main-container {
     overflow: hidden;
+    display: none;
 }
 
 #title {
