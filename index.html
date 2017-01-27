@@ -16,7 +16,16 @@
     <!-- <div id="myContent">
       {{ message | uppercase }}
     </div> -->
-    <canvas id="canvas" moz-opaque></canvas>
+    <div id="canvas">
+        <map name="map-batman" id="map-batman">
+            <area href="#" shape="poly" coords="273,4,273,4,304,91,448,69,561,142,649,317,637,342,699,436,699,506,627,643,602,567,554,669,553,725,485,727,491,682,442,596,338,651,300,539,176,557,138,616,130,677,55,718,21,709,25,682,101,511,77,499,96,437,87,425,143,380,59,359,0,320,61,311,74,286,43,246,96,177,130,246,218,117,204,18,258,1" />
+        </map>
+        <img id="batman" src="http://www.pngall.com/wp-content/uploads/2016/03/Batman-PNG.png" usemap="#map-batman" width="700" height="728"/>
+        <img id="flash" src="http://www.pngall.com/wp-content/uploads/2016/05/Flash-Free-Download-PNG.png"/>
+    </div>
+    <div id="batmanBox" class="lightbox">
+        show me that!
+    </div>
     <!-- <div id="characters">
         <img id="batman" class="character" src="http://www.pngall.com/wp-content/uploads/2016/03/Batman-PNG.png" usemap="#map-batman"/>
         <map name="map-batman">
@@ -24,10 +33,11 @@
         </map>
     </div> -->
 </div>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.3/js/imageMapResizer.min.js"></script>
+<script src="http://davidjbradshaw.com/imagemap-resizer/js/imageMapResizer.min.js"></script>
+<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
 <script src="js/utils.js"></script>
 </body>
 </html>

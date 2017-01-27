@@ -44,6 +44,7 @@ canvas, img {
 #canvas {
     background: url('../img/RuelleSombre.jpg');
     background-size: 100% 100%;
+    position: relative;
 }
 
 #characters {
@@ -58,11 +59,15 @@ canvas, img {
 
 #batman {
     position: absolute;
-    bottom: 10vh;
-    left: 10vw;
-    width: 30vw;
+    bottom: 10%;
+    left: 60%;
+    width: 10%;
     height: auto;
     /*cursor: pointer;*/
+}
+
+map:hover + #batman {
+    -webkit-filter: brightness(500%);
 }
 
 #main-container {
@@ -73,6 +78,15 @@ canvas, img {
     height: 100vh;
     overflow: hidden;
     /*display: none;*/
+}
+
+.lightbox {
+    position: absolute;
+    background-color: #e23636;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
 }
 
 #title {

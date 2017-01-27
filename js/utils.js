@@ -87,8 +87,16 @@ function parallax(e, target, layer) {
     var layer_coeff = 10 / layer;
     var x = ($(window).width() - target.offsetWidth) / 2 - (e.pageX - ($(window).width() / 2)) / layer_coeff;
     var y = ($(window).height() - target.offsetHeight) / 2 - (e.pageY - ($(window).height() / 2)) / layer_coeff;
-    $(target).offset({ top: y ,left : x });
+    var t1 = new TimelineLite();
+    t1.to($(target), 1, {left: x, top: y});
 };
+
+$('#map-batman').click(function() {
+    console.log('toto');
+    var t2 = new TimelineLite();
+    t2.from($('#batmanBox'), 1, {top: '100vh', display: 'inherit'})
+        .to($('#batmanBox'), 1, {top: '0', display: 'inherit'});
+});
 
 $(function() {
     addPages();
@@ -98,28 +106,5 @@ $(function() {
         // parallax(e, document.getElementById('layer-three'), 3);
     });
 
-
-    var canvas  = document.getElementById("canvas");
-    var context = canvas.getContext('2d');
-    context.webkitImageSmoothingEnabled = false;
-    context.mozImageSmoothingEnabled = false;
-    context.imageSmoothingEnabled = false;
-
-    var img = new Image();
-    // img.src = 'http://www.pngall.com/wp-content/uploads/2016/03/Batman-PNG.png';
-    img.src = 'http://www.pngall.com/wp-content/uploads/2016/05/Flash-Free-Download-PNG.png';
-    img.onload = function() {
-      var imgWidth = img.naturalWidth;
-      var imgHeight = img.naturalHeight;
-
-      var imgRatio  = img.naturalWidth / (canvas.width * 0.15);
-      var imgWidth = img.naturalWidth;
-
-      context.drawImage(img, 250, 90, imgWidth / imgRatio, imgHeight / imgRatio);
-    }
-
-    // img.onload = function (e)
-    // {
-    //     context.drawImage(img, 10, 10);
-    // }
+  	$('map').imageMapResize();
 });
