@@ -11,11 +11,39 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-image: url('https://soundlandscapes.files.wordpress.com/2011/01/024.jpg');
+    /*background-image: url('https://soundlandscapes.files.wordpress.com/2011/01/024.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
+    background-position: bottom;*/
     overflow: hidden;
+}
+
+canvas, img {
+    image-rendering: optimizeSpeed;             // Older versions of FF
+    image-rendering: -moz-crisp-edges;          // FF 6.0+
+    image-rendering: -webkit-optimize-contrast; // Webkit
+    image-rendering: -o-crisp-edges;            // OS X & Windows Opera (12.02+)
+    image-rendering: optimize-contrast;         // Possible future browsers.
+    -ms-interpolation-mode: nearest-neighbor;   // IE
+}
+
+@media all and (orientation:landscape) {
+  #canvas {
+      width: 120vw;
+      height: calc(120vw / 1.9);
+  }
+}
+
+@media all and (orientation:portrait) {
+  #canvas {
+      height: 120vh;
+      width: calc(120vh * 1.9);
+  }
+}
+
+#canvas {
+    background: url('../img/RuelleSombre.jpg');
+    background-size: 100% 100%;
 }
 
 #characters {
@@ -23,23 +51,34 @@ body {
     height: 100vh;
 }
 
+#characters > img:hover {
+  /*-webkit-filter: grayscale(1);
+  filter: grayscale(1);*/
+}
+
 #batman {
     position: absolute;
     bottom: 10vh;
     left: 10vw;
-    width: 20vw;
+    width: 30vw;
     height: auto;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 #main-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
-    display: none;
+    /*display: none;*/
 }
 
 #title {
     position: absolute;
     left: 0;
+    top: 30vh;
     width: 100vw;
     z-index: 15;
     text-align: center;
