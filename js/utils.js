@@ -9,9 +9,9 @@ var t, pages, container, redPanel, title, titleLa, titleOus, isTitleVisible, isS
 
 container = $("#main-container");
 redPanel = $("#red-panel");
-title = $("#title");
-titleLa = $("#title-la");
-titleOus = $("#title-ous");
+title = $("#main-container .title");
+titleLa = $("#main-container .title-la");
+titleOus = $("#main-container .title-ous");
 isTitleVisible = false;
 isStapeOne = false;
 isStapeTwo = false;
@@ -78,9 +78,12 @@ function loopPages(url, i, array){
 
 function addPages(){
   pages.forEach(loopPages);
+  t.to(title, 2, {transform: 'scale(0.15)', top: '100%'}, 'end');
+  t.to(container, 1.5, {top: '-100vh'}, 'end');
+  t.to(container, 1, {opacity: '0'}, 'end');
+  t.to($("#header > svg > path"), 5, {strokeDashoffset: '200', ease: Power1.easeOut}, 'end');
+  // t.to(container, 0, {display: 'none'});
   t.play();
-  t.to(container, 1, { opacity: '0' });
-  t.to(container, 0, { display: 'none' });
 }
 
 function parallax(e, target, layer) {
@@ -92,15 +95,24 @@ function parallax(e, target, layer) {
 };
 
 $('#map-batman').click(function() {
-    console.log('toto');
     var t2 = new TimelineLite();
-    t2.from($('#batmanBox'), 1, {top: '100vh', display: 'inherit'})
-        .to($('#batmanBox'), 1, {top: '0', display: 'inherit'});
+    t2.to($('#batman'), 1, {transform: 'scale(20)', filter: 'brightness(0) invert(1)', ease: Power1.easeIn})
+    t2.from($('#batmanBox'), 0, {top: '0', display: 'inherit', opacity: '0'})
+        .to($('#batmanBox'), 0.5, {top: '0', display: 'inherit', opacity: '1'});
+});
+
+$('.close').click(function() {
+    var id = $(this).parent().attr('id').replace("Box", "");
+    var t3 = new TimelineLite();
+    t3.from($('#' + id + 'Box'), 0, {top: '0', display: 'inherit', opacity: '1'})
+        .to($('#' + id + 'Box'), 0.5, {top: '0', display: 'none', opacity: '0'});
+    t3.to($('#' + id), 1, {transform: 'scale(1)', ease: Power1.easeOut})
+      .to($('#' + id), 0, {clearProps: 'filter'});
 });
 
 $(function() {
     addPages();
-    $('#canvas').mousemove(function (e) {
+    $('#scene').mousemove(function (e) {
         parallax(e, this, 2);
         // parallax(e, document.getElementById('layer-two'), 2);
         // parallax(e, document.getElementById('layer-three'), 3);
@@ -108,3 +120,52 @@ $(function() {
 
   	$('map').imageMapResize();
 });
+
+
+(function() {
+
+	function SVGMenu(el, options) {
+		this.el = el;
+		this.init();
+	}
+
+	SVGMenu.prototype.init = function() {
+		this.trigger = this.el.querySelector('button.trigger');
+		this.shapeEl = this.el.querySelector('span.morph-shape');
+
+		var s = Snap(this.shapeEl.querySelector('svg'));
+		this.pathEl = s.select('path');
+		this.paths = {
+			reset : this.pathEl.attr('d'),
+			active : this.shapeEl.getAttribute('data-morph-active')
+		};
+
+		this.isOpen = false;
+
+		this.initEvents();
+	};
+
+	SVGMenu.prototype.initEvents = function() {
+		this.trigger.addEventListener('click', this.toggle.bind(this));
+	};
+
+	SVGMenu.prototype.toggle = function() {
+		var self = this;
+
+		if(this.isOpen) {
+			$(this.el).removeClass('menu--open');
+		}
+		else {
+			setTimeout(function() {$(self.el).addClass('menu--open');}, 175);
+		}
+
+		this.pathEl.stop().animate({'path' : this.paths.active}, 150, mina.easein, function() {
+			self.pathEl.stop().animate({'path' : self.paths.reset}, 800, mina.elastic);
+		} );
+
+		this.isOpen = !this.isOpen;
+	};
+
+	new SVGMenu( document.getElementById('menu'));
+
+})();
