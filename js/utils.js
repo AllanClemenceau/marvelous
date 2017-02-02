@@ -78,10 +78,18 @@ function loopPages(url, i, array){
 
 function addPages(){
   pages.forEach(loopPages);
-  t.to(title, 2, {transform: 'scale(0.15)', top: '100%'}, 'end');
-  t.to(container, 1.5, {top: '-100vh'}, 'end');
+  t.to(title, 2, {transform: 'scale(0.15)', top: '-50%'}, 'end');
+  t.to('#headerSvg > path' , 0, {fill: '#e23636'}, 'end');
+  t.fromTo('#headerSvg', 2, {top: '-500px'}, {top : '0'}, 'end');
+  t.fromTo('#header > .title', 2, {top: '-500px'}, {top : '15%'}, 'end');
+  t.to('#headerSvg > path', 2.5, {clearProps: 'fill'}, 'end');
+  // t.to(container, 1.5, {top: '-100vh'}, 'end');
   t.to(container, 1, {opacity: '0'}, 'end');
-  t.to($("#header > svg > path"), 5, {strokeDashoffset: '200', ease: Power1.easeOut}, 'end');
+  t.to(container, 1, {display: 'none'}, 'end');
+  t.to("#header > svg#star > path", 0, {fill: '#e23636', stroke: '#fff', strokeWidth: '1', ease: Power1.easeIn}, 'end');
+  // t.to($("#header > svg#star"), 2, {rotation: '+=1080', ease: Power1.easeOut}, 'end');
+  t.to("#header > svg#star > path", 0.5, {fill: '#20346F', stroke: '#20346F', ease: Power1.easeOut});
+  t.to("#header > svg#star > path", 0.5, {clearProps: 'fill, stroke, strokeWidth'});
   // t.to(container, 0, {display: 'none'});
   t.play();
 }
@@ -96,18 +104,18 @@ function parallax(e, target, layer) {
 
 $('#map-batman').click(function() {
     var t2 = new TimelineLite();
-    t2.to($('#batman'), 1, {transform: 'scale(20)', filter: 'brightness(0) invert(1)', ease: Power1.easeIn})
-    t2.from($('#batmanBox'), 0, {top: '0', display: 'inherit', opacity: '0'})
-        .to($('#batmanBox'), 0.5, {top: '0', display: 'inherit', opacity: '1'});
+    t2.to('#batman', 1, {transform: 'scale(20)', filter: 'brightness(0) invert(1)', ease: Power1.easeIn})
+    t2.from('#batmanBox', 0, {top: '0', display: 'inherit', opacity: '0'})
+        .to('#batmanBox', 0.5, {top: '0', display: 'inherit', opacity: '1'});
 });
 
 $('.close').click(function() {
     var id = $(this).parent().attr('id').replace("Box", "");
     var t3 = new TimelineLite();
-    t3.from($('#' + id + 'Box'), 0, {top: '0', display: 'inherit', opacity: '1'})
-        .to($('#' + id + 'Box'), 0.5, {top: '0', display: 'none', opacity: '0'});
-    t3.to($('#' + id), 1, {transform: 'scale(1)', ease: Power1.easeOut})
-      .to($('#' + id), 0, {clearProps: 'filter'});
+    t3.from('#' + id + 'Box', 0, {top: '0', display: 'inherit', opacity: '1'})
+        .to('#' + id + 'Box', 0.5, {top: '0', display: 'none', opacity: '0'});
+    t3.to('#' + id, 1, {transform: 'scale(1)', ease: Power1.easeOut})
+      .to('#' + id, 0, {clearProps: 'filter'});
 });
 
 $(function() {

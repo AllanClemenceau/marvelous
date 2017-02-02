@@ -47,7 +47,7 @@ canvas, img {
 }
 
 #scene {
-    background: url('../img/RuelleSombre.jpg');
+    background: url('../img/RuelleSombre2.jpg');
     background-size: 100% 100%;
     position: absolute;
     top: 0;
@@ -55,12 +55,34 @@ canvas, img {
 }
 
 #header {
-  z-index: 10;
+    z-index: 10;
 }
 
-#header > svg > path {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 300;
+#header > svg#headerSvg > path {
+    /*stroke-dasharray: 100;
+    stroke-dashoffset: 300;*/
+}
+
+#header > svg#headerSvg > path, #header > svg#star > path {
+    transition: fill 0.5s ease-in;
+}
+
+#header > svg#headerSvg > path:hover, #header > svg#star > path:hover {
+    transition: fill 0.5s ease-out;
+    fill: #E23636;
+}
+
+#header > svg#star > path:hover {
+    stroke: #fff;
+    stroke-width: 1;
+}
+
+#header > svg#star {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 100px;
+    left: calc(50vw - 49px)
 }
 
 #characters {
@@ -75,15 +97,20 @@ canvas, img {
 
 #batman {
     position: absolute;
-    bottom: 10%;
-    left: 60%;
+    bottom: 35%;
+    left: 50%;
     width: 10%;
     height: auto;
     /*cursor: pointer;*/
 }
 
-map:hover + #batman {
-    -webkit-filter: brightness(500%);
+map + img {
+    transition: filter 0.5s ease-in;
+}
+
+map:hover + img {
+    transition: filter 0.5s ease-out;
+    filter: brightness(500%);
 }
 
 #main-container {
@@ -142,11 +169,11 @@ map:hover + #batman {
 }
 
 .title-la {
-    color: #000;
+    color: #20346F;
 }
 
 .title-ous {
-    color: #000;
+    color: #20346F;
 }
 
 .title > span:first-child {
@@ -280,11 +307,12 @@ map:hover + #batman {
 	outline: none;
 	text-align: center;
 	font-size: 1.5em;
-	color: #fff;
+	color: #20346F;
 	position: relative;
   z-index: 10;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent; /* For some Androids */
+  cursor: pointer;
 }
 
 .trigger span {
@@ -325,31 +353,6 @@ map:hover + #batman {
 	transform: scale3d(1, 1, 1) translate3d(0, -160px, 0);
 }
 
-/*.menu.menu--open .menu__items li:nth-child(2) {
-	-webkit-transform: scale3d(1, 1, 1) translate3d(113.14px, -113.14px, 0);
-	transform: scale3d(1, 1, 1) translate3d(113.14px, -113.14px, 0);
-}
-
-.menu.menu--open .menu__items li:nth-child(3) {
-	-webkit-transform: scale3d(1, 1, 1) translate3d(160px, 0, 0);
-	transform: scale3d(1, 1, 1) translate3d(160px, 0, 0);
-}
-
-.menu.menu--open .menu__items li:nth-child(4) {
-	-webkit-transform: scale3d(1, 1, 1) translate3d(113.14px, 113.14px, 0);
-	transform: scale3d(1, 1, 1) translate3d(113.14px, 113.14px, 0);
-}
-
-.menu.menu--open .menu__items li:nth-child(5) {
-	-webkit-transform: scale3d(1, 1, 1) translate3d(0, 160px, 0);
-	transform: scale3d(1, 1, 1) translate3d(0, 160px, 0);
-}
-
-.menu.menu--open .menu__items li:nth-child(6) {
-	-webkit-transform: scale3d(1, 1, 1) translate3d(-113.14px, 113.14px, 0);
-	transform: scale3d(1, 1, 1) translate3d(-113.14px, 113.14px, 0);
-}*/
-
 .menu.menu--open .menu__items li:nth-child(2) {
 	-webkit-transform: scale3d(1, 1, 1) translate3d(-160px, 0, 0);
 	transform: scale3d(1, 1, 1) translate3d(-160px, 0, 0);
@@ -360,10 +363,22 @@ map:hover + #batman {
 	transform: scale3d(1, 1, 1) translate3d(-113.14px, -113.14px, 0);
 }
 
+
+.menu.menu--open .menu__items li:nth-child(4) {
+	-webkit-transform: scale3d(1, 1, 1) translate3d(0, -320px, 0);
+	transform: scale3d(1, 1, 1) translate3d(0, -320px, 0);
+}
+
+
+.menu.menu--open .menu__items li:nth-child(5) {
+	-webkit-transform: scale3d(1, 1, 1) translate3d(0, -480px, 0);
+	transform: scale3d(1, 1, 1) translate3d(0, -480px, 0);
+}
+
 .menu__items li a {
 	display: block;
-	background: #e23636;
-	color: #fff;
+	background: #fff;
+	color: #20346F;
 	border-radius: 50%;
 	outline: none;
 	overflow: hidden;
@@ -374,13 +389,19 @@ map:hover + #batman {
 }
 
 .menu__items li a i {
-  margin-top: 28px;
+    margin-top: 28px;
+}
+
+.menu__items li a {
+    transition: transform 0.5s ease-in;
 }
 
 .menu__items li a:hover,
 .menu__items li a:focus {
-	/*background: #272c2c;*/
-	color: #20346F;
+    transition: transform 0.5s ease-in;
+    transform: scale(1.25);
+  	/*background: #272c2c;*/
+	   color: #e23636;
 }
 
 .menu__items li a span {
@@ -400,9 +421,10 @@ map:hover + #batman {
 }
 
 .morph-shape svg path {
-	fill: #e23636;
+	fill: #fff;
 	-webkit-transition: fill 0.3s;
 	transition: fill 0.3s;
+  cursor: pointer;
 }
 
 .menu--open .morph-shape svg path {
@@ -410,7 +432,7 @@ map:hover + #batman {
 }
 
 .menu--open .trigger {
-  color: #20346F;
+  color: #e23636;
 }
 
 @media screen and (max-width: 40em) {

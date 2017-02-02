@@ -9,49 +9,24 @@
 </head>
 <body>
 <div class="content">
-    <div id="header" style="position:relative;width:100vw;height:10vh">
-      <svg width="100%" height="100%" style="position: absolute;display: block;" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path d="M0,0 L 50,100 100,0 Z" fill="#e23636" vector-effect="non-scaling-stroke"/>
+    <div id="header" style="position:relative;width:100vw;height:10vh;min-height:150px">
+      <svg id="headerSvg" width="100%" height="100%" style="position: absolute;display: block;" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0,0 L 50,100 100,0" fill="#E23636" vector-effect="non-scaling-stroke"/>
           <path stroke-linejoin="miter"
-              d="M0 0 L40 10"
-              stroke="#fff" stroke-width="5"
-              fill="none" />
+              d="M0,0 L 40,0 25,50"
+              fill="#20346F" />
           <path stroke-linejoin="miter"
-              d="M100 0 L60 10"
-              stroke="#fff" stroke-width="5"
-              fill="none" />
+              d="M100,0 L 60,0 75,50"
+              fill="#20346F" />
           <path stroke-linejoin="miter"
-              d="M0 0 L39 20"
-              stroke="#20346F" stroke-width="5"
-              fill="none" />
+              d="M0,0 L 32.5,25 50,100 45,100"
+              fill="#FFF" />
           <path stroke-linejoin="miter"
-              d="M100,0 L61 20"
-              stroke="#20346F" stroke-width="5"
-              fill="none" />
-          <path stroke-linejoin="miter"
-              d="M0 0 L38 30"
-              stroke="#fff" stroke-width="5"
-              fill="none" />
-          <path stroke-linejoin="miter"
-              d="M100 0 L62 30"
-              stroke="#fff" stroke-width="5"
-              fill="none" />
-          <path stroke-linejoin="miter"
-              d="M0 0 L37 40"
-              stroke="#20346F" stroke-width="5"
-              fill="none" />
-          <path stroke-linejoin="miter"
-              d="M100 0 L63 40"
-              stroke="#20346F" stroke-width="5"
-              fill="none" />
-          <path stroke-linejoin="miter"
-              d="M0 0 L35 50"
-              stroke="#fff" stroke-width="5"
-              fill="none" />
-          <path stroke-linejoin="miter"
-              d="M100 0 L65 50"
-              stroke="#fff" stroke-width="5"
-              fill="none" />
+              d="M100,0 L 67.5,25 50,100 55,100"
+              fill="#FFF" />
+      </svg>
+      <svg id="star" xmlns="http://www.w3.org/2000/svg" width="255" height="240" viewBox="0 0 51 48">
+          <path fill="#20346F" d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"/>
       </svg>
       <div class="title"><span class="title-la">LA </span><span>MA</span><span>R</span><span>V</span><span>E</span><span>L</span><span class="title-ous">OUS</span></div>
     </div>
@@ -67,8 +42,8 @@
         <map name="map-batman" id="map-batman">
             <area href="#" shape="poly" coords="273,4,273,4,304,91,448,69,561,142,649,317,637,342,699,436,699,506,627,643,602,567,554,669,553,725,485,727,491,682,442,596,338,651,300,539,176,557,138,616,130,677,55,718,21,709,25,682,101,511,77,499,96,437,87,425,143,380,59,359,0,320,61,311,74,286,43,246,96,177,130,246,218,117,204,18,258,1" />
         </map>
-        <img id="batman" src="http://www.pngall.com/wp-content/uploads/2016/03/Batman-PNG.png" usemap="#map-batman" width="700" height="728"/>
-        <img id="flash" src="http://www.pngall.com/wp-content/uploads/2016/05/Flash-Free-Download-PNG.png"/>
+        <img id="batman" src="img/batman.png" usemap="#map-batman" width="700" height="728"/>
+        <img id="flash" src="img/flash.png"/>
     </div>
 
     <div id="batmanBox" class="lightbox">
@@ -81,13 +56,14 @@
 			<span class="morph-shape" data-morph-active="M251,150c0,93.5-29.203,143-101,143S49,243.5,49,150C49,52.5,78.203,7,150,7S251,51.5,251,150z">
 				<svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
 					<path d="M281,150C281,221.797,221.797,281,150,281C78.203,281,19,221.797,19,150C19,78.203,78.203,19,150,19C221.797,19,281,78.203,281,150C281,150,281,150,281,150"></path>
-				<desc>Created with Snap</desc><defs></defs></svg>
 			</span>
-			<button class="trigger"><i class="fa fa-fw fa-circle-o"></i><span>Share This</span></button>
+			<button class="trigger"><i class="fa fa-fw fa-dot-circle-o"></i></button>
 			<ul class="menu__items">
 				<li><a href="#"><i class="fa fa-fw fa-facebook"></i><span>Facebook</span></a></li>
 				<li><a href="#"><i class="fa fa-fw fa-twitter"></i><span>Twitter</span></a></li>
 				<li><a href="#"><i class="fa fa-fw fa-instagram"></i><span>Instagram</span></a></li>
+				<li><a href="#"><i class="fa fa-fw fa-info"></i><span>Informations</span></a></li>
+				<li><a href="#"><i class="fa fa-fw fa-ticket"></i><span>Ticket</span></a></li>
 			</ul>
 		</nav>
   </div>
