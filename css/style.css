@@ -16,10 +16,6 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    /*background-image: url('https://soundlandscapes.files.wordpress.com/2011/01/024.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;*/
     overflow: hidden;
 }
 
@@ -67,7 +63,11 @@ canvas, img {
     transition: fill 0.5s ease-in;
 }
 
-#header > svg#headerSvg > path:hover, #header > svg#star > path:hover {
+#header > svg#headerSvg > path:hover, #header > svg#star > path:hover,
+#header > svg#headerSvg > path:first-child:hover + path,
+#header > svg#headerSvg > path:first-child:hover + path + path,
+#header > svg#headerSvg > path:first-child:hover + path + path + path,
+#header > svg#headerSvg > path:first-child:hover + path + path + path + path {
     transition: fill 0.5s ease-out;
     fill: #E23636;
 }
