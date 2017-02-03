@@ -115,7 +115,7 @@ $('.close').click(function() {
     t3.from('#' + id + 'Box', 0, {top: '0', display: 'inherit', opacity: '1'})
         .to('#' + id + 'Box', 0.5, {top: '0', display: 'none', opacity: '0'});
     t3.to('#' + id, 1, {transform: 'scale(1)', ease: Power1.easeOut})
-      .to('#' + id, 0, {clearProps: 'filter'});
+      .to('#' + id, 0, {clearProps: 'filter, transform'});
 });
 
 $(function() {
