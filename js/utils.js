@@ -87,6 +87,7 @@ function addPages(){
   t.to(container, 1, {opacity: '0'}, 'end');
   t.to(container, 1, {display: 'none'}, 'end');
   t.to("#header > svg#star > path", 0, {fill: '#e23636', stroke: '#fff', strokeWidth: '1', ease: Power1.easeIn}, 'end');
+  t.fromTo('#header > svg#star', 2, {top: '100vh'}, {rotation: '+=1080', top : '100px'}, 'end');
   // t.to($("#header > svg#star"), 2, {rotation: '+=1080', ease: Power1.easeOut}, 'end');
   t.to("#header > svg#star > path", 0.5, {fill: '#20346F', stroke: '#20346F', ease: Power1.easeOut});
   t.to("#header > svg#star > path", 0.5, {clearProps: 'fill, stroke, strokeWidth'});
