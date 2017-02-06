@@ -118,9 +118,9 @@ $('.heroMap').click(function() {
     if ($('#menu').hasClass('menu--open')) {
         $('#menu .trigger').click();
     }
-    t3.to('.menu__items li a', 1, {color: '#FFF', background: '#20346F', ease: Power1.easeIn}, 'start');
-    t3.to('.morph-shape svg path', 1, {fill: '#20346F', ease: Power1.easeIn}, 'start');
+    t3.to('.morph-shape svg path', 1, {fill: '#20346F', ease: Power1.easeIn});
     t3.to('.trigger', 1, {color: '#FFF', ease: Power1.easeIn}, 'start');
+    t3.to('.menu__items li a', 1, {color: '#FFF', background: '#20346F', ease: Power1.easeIn});
     t2.to('#' + id, 1, {transform: 'scale(20)', filter: 'brightness(0) invert(1)', ease: Power1.easeIn})
     t2.from('#' + id + 'Box', 0, {top: '0', display: 'inherit', opacity: '0'})
         .to('#' + id + 'Box', 0.5, {top: '0', display: 'inherit', opacity: '1'});
@@ -133,9 +133,10 @@ $('.close').click(function() {
     if ($('#menu').hasClass('menu--open')) {
         $('#menu .trigger').click();
     }
-    t5.to('.menu__items li a', 1, {clearProps: 'color, background', ease: Power1.easeIn}, 'start');
-    t5.to('.morph-shape svg path', 1, {clearProps: 'fill', ease: Power1.easeIn}, 'start');
-    t5.to('.trigger', 1, {clearProps: 'color', ease: Power1.easeIn}, 'start');
+    t5.to('.morph-shape svg path', 1, {clearProps: 'fill', ease: Power1.easeIn});
+    t5.to('.trigger', 1, {color: '#20346F', ease: Power1.easeIn}, 'start');
+    t5.to('.trigger', 0, {clearProps: 'color', ease: Power1.easeIn});
+    t5.to('.menu__items li a', 1, {clearProps: 'color, background', ease: Power1.easeIn});
     t4.from('#' + id + 'Box', 0, {top: '0', display: 'inherit', opacity: '1'})
         .to('#' + id + 'Box', 0.5, {top: '0', display: 'none', opacity: '0'});
     t4.to('#' + id, 1, {transform: 'scale(1)', ease: Power1.easeOut})
