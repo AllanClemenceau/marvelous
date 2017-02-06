@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #e23636;
+    /*background-color: #e23636;*/
 }
 
 .content {
@@ -236,7 +236,7 @@ map:hover + img {
 
 #red-panel {
     position: absolute;
-    background-color: #000;
+    background-color: #e23636;
     opacity: 1;
     z-index: 10;
     top: 0;
@@ -401,7 +401,7 @@ map:hover + img {
     transition: transform 0.5s ease-in;
     transform: scale(1.25);
   	/*background: #272c2c;*/
-	   color: #e23636;
+	   color: #e23636 !important;
 }
 
 .menu__items li a span {
@@ -432,7 +432,7 @@ map:hover + img {
 }
 
 .menu--open .trigger {
-  color: #e23636;
+  color: #e23636 !important;
 }
 
 @media screen and (max-width: 40em) {
@@ -440,4 +440,33 @@ map:hover + img {
 		-webkit-transform: scale3d(0.8,0.8,1);
 		transform: scale3d(0.8,0.8,1);
 	}
+}
+
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background-color: rgba(226, 54, 54, 1);
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  width: 100%;
+}
+
+.pace-running .content {
+  display: none;
+}
+.hidden {
+  display: none;
 }
