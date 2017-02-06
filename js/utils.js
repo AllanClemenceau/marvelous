@@ -115,6 +115,9 @@ $('.heroMap').click(function() {
     var id = $(this).attr('id').replace("map-", "");
     var t2 = new TimelineLite();
     var t3 = new TimelineLite();
+    if ($('#menu').hasClass('menu--open')) {
+        $('#menu .trigger').click();
+    }
     t3.to('.menu__items li a', 1, {color: '#FFF', background: '#20346F', ease: Power1.easeIn}, 'start');
     t3.to('.morph-shape svg path', 1, {fill: '#20346F', ease: Power1.easeIn}, 'start');
     t3.to('.trigger', 1, {color: '#FFF', ease: Power1.easeIn}, 'start');
@@ -127,6 +130,9 @@ $('.close').click(function() {
     var id = $(this).parent().attr('id').replace("Box", "");
     var t4 = new TimelineLite();
     var t5 = new TimelineLite();
+    if ($('#menu').hasClass('menu--open')) {
+        $('#menu .trigger').click();
+    }
     t5.to('.menu__items li a', 1, {clearProps: 'color, background', ease: Power1.easeIn}, 'start');
     t5.to('.morph-shape svg path', 1, {clearProps: 'fill', ease: Power1.easeIn}, 'start');
     t5.to('.trigger', 1, {clearProps: 'color', ease: Power1.easeIn}, 'start');
