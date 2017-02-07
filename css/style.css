@@ -29,25 +29,43 @@ canvas, img {
 }
 
 @media all and (orientation:landscape) {
-    #scene {
+    #scene, .layer {
         width: 120vw;
         height: calc(120vw / 1.9);
+    }
+    .parallaxContainer {
+        position: absolute;
+        top: -5.5vw;
+        left: calc(-19vw / 1.9);
     }
 }
 
 @media all and (orientation:portrait) {
-    #scene {
+    #scene, .layer {
         height: 120vh;
         width: calc(120vh * 1.9);
     }
+    .parallaxContainer {
+        position: absolute;
+        top: -7vh;
+        left: calc(-45vh * 1.9);
+    }
 }
 
-#scene {
+
+}
+#scene, .layer {
+    height: 100vh;
+    width: 100vw;
+}
+.layer {
     background: url('../img/RuelleSombre2.jpg');
     background-size: 100% 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+}
+#scene {
+    /*position: absolute;*/
+    /*top: 0;
+    left: 0;*/
 }
 
 #header {
@@ -96,6 +114,15 @@ canvas, img {
     bottom: 35%;
     left: 50%;
     width: 10%;
+    height: auto;
+    /*cursor: pointer;*/
+}
+
+#flash {
+    position: absolute;
+    bottom: 5%;
+    left: 30%;
+    width: 15%;
     height: auto;
     /*cursor: pointer;*/
 }
@@ -536,6 +563,9 @@ canvas, img {
 }
 
 .hero  {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
     transform: translate3d(0, 0, 0) scale(1);
     /*filter: none;*/
 }
@@ -829,4 +859,10 @@ map:hover+.hero {
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
     background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen19.jpg');
     animation-delay: 4.75s;
+}
+
+@media (max-device-width:768px) {
+    #marvelImages>.marvelImage:nth-child(2n) {
+      display: none;
+    }
 }
