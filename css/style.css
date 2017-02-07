@@ -20,26 +20,26 @@ body {
 }
 
 canvas, img {
-    image-rendering: optimizeSpeed;             // Older versions of FF
-    image-rendering: -moz-crisp-edges;          // FF 6.0+
+    image-rendering: optimizeSpeed; // Older versions of FF
+    image-rendering: -moz-crisp-edges; // FF 6.0+
     image-rendering: -webkit-optimize-contrast; // Webkit
-    image-rendering: -o-crisp-edges;            // OS X & Windows Opera (12.02+)
-    image-rendering: optimize-contrast;         // Possible future browsers.
-    -ms-interpolation-mode: nearest-neighbor;   // IE
+    image-rendering: -o-crisp-edges; // OS X & Windows Opera (12.02+)
+    image-rendering: optimize-contrast; // Possible future browsers.
+    -ms-interpolation-mode: nearest-neighbor; // IE
 }
 
 @media all and (orientation:landscape) {
-  #scene {
-      width: 120vw;
-      height: calc(120vw / 1.9);
-  }
+    #scene {
+        width: 120vw;
+        height: calc(120vw / 1.9);
+    }
 }
 
 @media all and (orientation:portrait) {
-  #scene {
-      height: 120vh;
-      width: calc(120vh * 1.9);
-  }
+    #scene {
+        height: 120vh;
+        width: calc(120vh * 1.9);
+    }
 }
 
 #scene {
@@ -55,34 +55,30 @@ canvas, img {
     z-index: 10;
 }
 
-#header > svg#headerSvg > path {
+#header>svg#headerSvg>path {
     /*stroke-dasharray: 100;
     stroke-dashoffset: 300;*/
 }
 
-#header > svg#headerSvg > path, #header > svg#star > path {
+#header>svg#headerSvg>path, #header>svg#star>path {
     transition: fill 0.5s ease-in;
 }
 
-#header > svg#headerSvg > path:hover, #header > svg#star > path:hover,
-#header > svg#headerSvg > path:first-child:hover + path,
-#header > svg#headerSvg > path:first-child:hover + path + path,
-#header > svg#headerSvg > path:first-child:hover + path + path + path,
-#header > svg#headerSvg > path:first-child:hover + path + path + path + path {
+#header>svg#headerSvg>path:hover, #header>svg#star>path:hover, #header>svg#headerSvg>path:first-child:hover+path, #header>svg#headerSvg>path:first-child:hover+path+path, #header>svg#headerSvg>path:first-child:hover+path+path+path, #header>svg#headerSvg>path:first-child:hover+path+path+path+path {
     transition: fill 0.5s ease-out;
     fill: #E23636;
 }
 
-#header > svg#star > path:hover {
+#header>svg#star>path:hover {
     stroke: #fff;
     stroke-width: 1;
 }
 
-#header > svg#star {
+#header>svg#star {
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 100px;
+    transform: translate3d(0, 100vh, 0);
     left: calc(50vw - 49px)
 }
 
@@ -91,8 +87,8 @@ canvas, img {
     height: 100vh;
 }
 
-#characters > img:hover {
-  /*-webkit-filter: grayscale(1);
+#characters>img:hover {
+    /*-webkit-filter: grayscale(1);
   filter: grayscale(1);*/
 }
 
@@ -105,11 +101,11 @@ canvas, img {
     /*cursor: pointer;*/
 }
 
-map + img {
+map+img {
     transition: filter 0.5s ease-in;
 }
 
-map:hover + img {
+map:hover+img {
     transition: filter 0.5s ease-out;
     filter: brightness(500%);
 }
@@ -134,7 +130,7 @@ map:hover + img {
     display: none;
 }
 
-.lightbox > div {
+.lightbox>div {
     margin-top: 30vh;
     text-align: center;
     font-family: Kayak;
@@ -143,7 +139,7 @@ map:hover + img {
 .title {
     position: absolute;
     left: 0;
-    top: 30vh;
+    transform: translate3d(0, 30vh, 0);
     width: 100vw;
     z-index: 15;
     text-align: center;
@@ -157,7 +153,6 @@ map:hover + img {
 #header .title {
     position: absolute;
     left: inherit;
-    top: inherit;;
     width: 100%;
     z-index: 15;
     text-align: center;
@@ -166,70 +161,78 @@ map:hover + img {
     color: #fff;
     opacity: 1;
     overflow: hidden;
-    top: 15%;
+    transform: translate3d(0, -500px, 0);
 }
 
-.title-la,.title-ous {
-    color: #20346F;
+#main-container .title-la, #main-container .title-ous {
     opacity: 0;
 }
 
-.title.fadeIn {
-    animation: fadeIn 1s forwards;
-    animation-delay: 3s;
+.title-la, .title-ous {
+    color: #20346F;
+}
+
+#main-container > .title.fadeIn {
+    animation: mainTitleFadeIn 6.75s forwards;
 }
 
 .title-la.fadeIn, .title-ous.fadeIn {
     animation: fadeIn 0.5s forwards;
-    animation-delay: 4.5s;
+    animation-delay: 3.5s;
 }
 
-.title > span:first-child {
+/*#main-container > .title.phaseTwo {
+    animation: scaleTitle 6.75s forwards
+}*/
+
+.title>span:first-child {
     margin-right: 3vw;
 }
-.title > span {
+
+.title>span {
     position: relative;
     letter-spacing: -2.4vw;
 }
 
-.title > span + span + span {
+.title>span+span+span {
     letter-spacing: -3.2vw;
 }
 
-.title > span + span + span + span {
+.title>span+span+span+span {
     letter-spacing: -2vw;
 }
 
-.title > span + span + span + span + span {
+.title>span+span+span+span+span {
     letter-spacing: -1vw;
 }
 
-.title > span + span + span + span + span + span {
+.title>span+span+span+span+span+span {
     letter-spacing: -2.4vw;
 }
 
-#header .title > span:first-child {
+#header .title>span:first-child {
     margin-right: 0.15em;
 }
-#header .title > span {
+
+#header .title>span {
     position: relative;
     letter-spacing: -0.13em;
     cursor: pointer;
 }
 
-#header .title > span + span + span {
+#header .title>span+span+span {
     letter-spacing: -0.18em;
 }
 
-#header .title > span + span + span + span {
+#header .title>span+span+span+span {
     letter-spacing: -0.12em;
 }
 
-#header .title > span + span + span + span + span {
+#header .title>span+span+span+span+span {
     letter-spacing: -0.03em;
 }
 
-#header .title > span + span + span + span + span + span {
+#header .title>span+span+span+span+span+span {
     letter-spacing: -0.15em;
 }
 
@@ -259,152 +262,155 @@ map:hover + img {
 }
 
 .close {
-  position: absolute;
-  z-index: 100;
-  right: calc(50vw - 16px);
-  bottom: 32px;
-  width: 32px;
-  height: 32px;
-  border: #e23636 solid 2px;
-  border-radius: 50%;
-  padding: 5px;
-  transition: border 0.5s ease-in;
+    position: absolute;
+    z-index: 100;
+    right: calc(50vw - 16px);
+    bottom: 32px;
+    width: 32px;
+    height: 32px;
+    border: #e23636 solid 2px;
+    border-radius: 50%;
+    padding: 5px;
+    transition: border 0.5s ease-in;
 }
+
 .close:hover {
-  transition: border 0.5s ease-out;
-  border: #20346F solid 2px;
+    transition: border 0.5s ease-out;
+    border: #20346F solid 2px;
 }
+
 .close:before, .close:after {
-  margin-left: 5px;
-  position: absolute;
-  left: 15px;
-  content: ' ';
-  height: 33px;
-  width: 2px;
-  background-color: #e23636;
-  transition: background-color 0.5s ease-in;
+    margin-left: 5px;
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #e23636;
+    transition: background-color 0.5s ease-in;
 }
+
 .close:hover:before, .close:hover:after {
-  transition: background-color 0.5s ease-out;
-  background-color: #20346F;
+    transition: background-color 0.5s ease-out;
+    background-color: #20346F;
 }
+
 .close:before {
-  transform: rotate(45deg);
+    transform: rotate(45deg);
 }
+
 .close:after {
-  transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
-
-
 
 #menuContainer {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }
 
 .menu {
-	position: relative;
-	display: inline-block;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	cursor: pointer;
-	/*margin: 7em 0;*/
+    position: relative;
+    display: inline-block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    /*margin: 7em 0;*/
 }
 
 .trigger {
-	background: none;
-	width: 100px;
-	height: 100px;
-	padding: 0;
-	margin: 0;
-	border: none;
-	outline: none;
-	text-align: center;
-	font-size: 1.5em;
-	color: #20346F;
-	position: relative;
-  z-index: 10;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	-webkit-tap-highlight-color: transparent; /* For some Androids */
-  cursor: pointer;
+    background: none;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 1.5em;
+    color: #20346F;
+    position: relative;
+    z-index: 10;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    /* For some Androids */
+    cursor: pointer;
 }
 
 .trigger span {
-	opacity: 0;
-	position: absolute;
+    opacity: 0;
+    position: absolute;
 }
 
 .menu__items {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-	z-index: 5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    z-index: 5;
 }
 
 .menu__items li {
-	width: 80%;
-	height: 80%;
-	top: 10%;
-	left: 10%;
-	line-height: 80px;
-	font-size: 1.5em;
-	position: absolute;
-	z-index: -1;
-	-webkit-transform-origin: 50% 50%;
-	transform-origin: 50% 50%;
-	-webkit-transform: scale3d(0.5, 0.5, 1);
-	transform: scale3d(0.5, 0.5, 1);
-	-webkit-transition: -webkit-transform 0.25s ease-out;
-	transition: transform 0.25s ease-out;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    line-height: 80px;
+    font-size: 1.5em;
+    position: absolute;
+    z-index: -1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale3d(0.5, 0.5, 1);
+    transform: scale3d(0.5, 0.5, 1);
+    -webkit-transition: -webkit-transform 0.25s ease-out;
+    transition: transform 0.25s ease-out;
 }
 
 .menu.menu--open .menu__items li:first-child {
-	-webkit-transform: scale3d(1, 1, 1) translate3d(0, -160px, 0);
-	transform: scale3d(1, 1, 1) translate3d(0, -160px, 0);
+    -webkit-transform: scale3d(1, 1, 1) translate3d(0, -160px, 0);
+    transform: scale3d(1, 1, 1) translate3d(0, -160px, 0);
 }
 
 .menu.menu--open .menu__items li:nth-child(2) {
-	-webkit-transform: scale3d(1, 1, 1) translate3d(-160px, 0, 0);
-	transform: scale3d(1, 1, 1) translate3d(-160px, 0, 0);
+    -webkit-transform: scale3d(1, 1, 1) translate3d(-160px, 0, 0);
+    transform: scale3d(1, 1, 1) translate3d(-160px, 0, 0);
 }
 
 .menu.menu--open .menu__items li:nth-child(3) {
-	-webkit-transform: scale3d(1, 1, 1) translate3d(-113.14px, -113.14px, 0);
-	transform: scale3d(1, 1, 1) translate3d(-113.14px, -113.14px, 0);
+    -webkit-transform: scale3d(1, 1, 1) translate3d(-113.14px, -113.14px, 0);
+    transform: scale3d(1, 1, 1) translate3d(-113.14px, -113.14px, 0);
 }
-
 
 .menu.menu--open .menu__items li:nth-child(4) {
-	-webkit-transform: scale3d(1, 1, 1) translate3d(0, -320px, 0);
-	transform: scale3d(1, 1, 1) translate3d(0, -320px, 0);
+    -webkit-transform: scale3d(1, 1, 1) translate3d(0, -320px, 0);
+    transform: scale3d(1, 1, 1) translate3d(0, -320px, 0);
 }
 
-
 .menu.menu--open .menu__items li:nth-child(5) {
-	-webkit-transform: scale3d(1, 1, 1) translate3d(0, -480px, 0);
-	transform: scale3d(1, 1, 1) translate3d(0, -480px, 0);
+    -webkit-transform: scale3d(1, 1, 1) translate3d(0, -480px, 0);
+    transform: scale3d(1, 1, 1) translate3d(0, -480px, 0);
 }
 
 .menu__items li a {
-	display: block;
-	background: #fff;
-	color: #20346F;
-	border-radius: 50%;
-	outline: none;
-	overflow: hidden;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	-webkit-tap-highlight-color: transparent; /* For some Androids */
-  text-align: center;
-  height: 80px;
+    display: block;
+    background: #fff;
+    color: #20346F;
+    border-radius: 50%;
+    outline: none;
+    overflow: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    /* For some Androids */
+    text-align: center;
+    height: 80px;
 }
 
 .menu__items li a i {
@@ -415,163 +421,172 @@ map:hover + img {
     transition: transform 0.5s ease-in;
 }
 
-.menu__items li a:hover,
-.menu__items li a:focus {
+.menu__items li a:hover, .menu__items li a:focus {
     transition: transform 0.5s ease-in;
     transform: scale(1.25);
-  	/*background: #272c2c;*/
-	   color: #e23636 !important;
+    /*background: #272c2c;*/
+    color: #e23636 !important;
 }
 
 .menu__items li a span {
-	position: absolute;
-	color: transparent;
-	top: 100%;
-	pointer-events: none;
+    position: absolute;
+    color: transparent;
+    top: 100%;
+    pointer-events: none;
 }
 
 .morph-shape {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	z-index: 10;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
 .morph-shape svg path {
-	fill: #fff;
-	-webkit-transition: fill 0.3s;
-	transition: fill 0.3s;
-  cursor: pointer;
+    fill: #fff;
+    -webkit-transition: fill 0.3s;
+    transition: fill 0.3s;
+    cursor: pointer;
 }
 
 .menu--open .morph-shape svg path {
-	/*fill: #777;*/
+    /*fill: #777;*/
 }
 
 .menu--open .trigger {
-  color: #e23636 !important;
+    color: #e23636 !important;
 }
 
 @media screen and (max-width: 40em) {
-	.menu__items {
-		-webkit-transform: scale3d(0.8,0.8,1);
-		transform: scale3d(0.8,0.8,1);
-	}
+    .menu__items {
+        -webkit-transform: scale3d(0.8, 0.8, 1);
+        transform: scale3d(0.8, 0.8, 1);
+    }
 }
 
 .pace {
-  -webkit-pointer-events: none;
-  pointer-events: none;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-
-  -webkit-transform: translate3d(0, -50px, 0);
-  -ms-transform: translate3d(0, -50px, 0);
-  transform: translate3d(0, -50px, 0);
-
-  -webkit-transition: -webkit-transform .5s ease-out;
-  -ms-transition: -webkit-transform .5s ease-out;
-  transition: transform .5s ease-out;
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-transform: translate3d(0, -50px, 0);
+    -ms-transform: translate3d(0, -50px, 0);
+    transform: translate3d(0, -50px, 0);
+    -webkit-transition: -webkit-transform .5s ease-out;
+    -ms-transition: -webkit-transform .5s ease-out;
+    transition: transform .5s ease-out;
 }
 
 .pace.pace-active {
-  -webkit-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .pace .pace-progress {
-  display: block;
-  position: fixed;
-  z-index: 2000;
-  top: 0;
-  right: 100%;
-  width: 100%;
-  height: 10px;
-  background: #20346F;
-
-  pointer-events: none;
+    display: block;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 10px;
+    background: #20346F;
+    pointer-events: none;
 }
-
-/*.pace {
-  -webkit-pointer-events: none;
-  pointer-events: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-.pace-inactive {
-  display: none;
-}
-
-.pace .pace-progress {
-  background-color: #e23636;
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  right: 100%;
-  bottom: 0;
-  width: 100%;
-}*/
 
 .pace-running .content {
-  display: none;
+    display: none;
 }
+
 .hidden {
-  display: none;
+    display: none;
 }
 
-#headerSvg > path.phaseTwo {
-  animation: titlePhaseTwo 2s forwards;
+#headerSvg, #header > .title {
+    transform: translate3d(0, -500px, 0);
 }
+
 #headerSvg.phaseTwo {
-
+    animation: headerSvgTop 6.75s forwards;
 }
+
 #header > .title.phaseTwo {
-
+    animation: headerTitleTop 6.75s forwards;
 }
-#headerSvg > path.phaseTwo {
 
-}
 #main-container.phaseTwo {
-
+    animation: mainContainerHide 6.75s forwards;
 }
-#header > svg#star > path.phaseTwo {
 
-}
 #header > svg#star.phaseTwo {
-
+    animation: rotateStar 6.75s forwards;
 }
 
-
-@keyframes titlePhaseTwo {
+@keyframes rotateStar {
     0% {
-        transform: scale(1);
-        top: 30vh;
+        transform : translate3d(0, 100vh, 0) rotate(0);
+    }
+    70% {
+        transform : translate3d(0, 100vh, 0) rotate(0);
     }
     100% {
-        transform: scale(0.15);
-        top: -50%;
+        transform :  translate3d(0, 100px, 0) rotate(1080deg);
+    }
+}
+
+@keyframes mainContainerHide {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes headerSvgTop {
+    0% {
+        transform: translate3d(0, -500px, 0);
+    }
+    70% {
+        transform: translate3d(0, -500px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes headerTitleTop {
+    0% {
+        transform: translate3d(0, -500px, 0);
+    }
+    70% {
+        transform: translate3d(0, -500px, 0);
+    }
+    100% {
+        transform: translate3d(0, 15%, 0);
     }
 }
 @keyframes slideDown {
     0% {
-        top: -100vh;
+        transform: translate3d(0, -100vh, 0);
     }
     100% {
-        top: 0;
+        transform: translate3d(0, 0, 0);
     }
 }
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -580,6 +595,7 @@ map:hover + img {
         opacity: 1;
     }
 }
+
 @keyframes fadeInRedPanel {
     0% {
         opacity: 0;
@@ -593,171 +609,166 @@ map:hover + img {
     41% {
         opacity: 0.75;
     }
-    0% {
-        opacity: 0.75;
-    }
     100% {
         opacity: 1;
     }
 }
 
-#marvelImages > .marvelImage {
+@keyframes mainTitleFadeIn {
+    0% {
+        transform:  translate3d(0, 30vh, 0) scale(1);
+        opacity: 0;
+    }
+    30% {
+        transform:  translate3d(0, 30vh, 0) scale(1);
+        opacity: 0;
+    }
+    35% {
+        transform:  translate3d(0, 30vh, 0) scale(1);
+        opacity: 1;
+    }
+    70% {
+        transform:  translate3d(0, 30vh, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform:  translate3d(0, -100vh, 0) scale(0.15);
+        opacity: 1;
+    }
+}
+
+#marvelImages>.marvelImage {
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
     z-index: 5;
-    top: -100vh;
+    transform: translate3d(0, -100vh, 0);
     left: 0;
     width: 100vw;
     height: 100vh;
     /*transition: top 0.5s ease-in;*/
 }
 
-#marvelImages > .marvelImage.translate {
+#marvelImages>.marvelImage.translate {
     /*transition: top 0.5s ease-in-out;*/
     animation: slideDown 0.5s forwards;
 }
-#marvelImages > .marvelImage:first-child {
+
+#marvelImages>.marvelImage:first-child {
     background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen3.jpg');
 }
-#marvelImages > .marvelImage + .marvelImage {
+
+#marvelImages>.marvelImage+.marvelImage {
     background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen24.jpg');
     animation-delay: 0.5s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage {
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage {
     background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen2.jpg');
-    animation-delay: 0.98s;
+    animation-delay: 0.97s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage {
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage {
     background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen4.jpg');
-    animation-delay: 1.44s;
+    animation-delay: 1.41s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
     background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen5.png');
-    animation-delay: 1.88s;
+    animation-delay: 1.82s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
     background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen23.jpg');
-    animation-delay: 2.3s;
+    animation-delay: 2.2s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
     background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen6.jpg');
-    animation-delay: 2.7s;
+    animation-delay: 2.55s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
     background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen7.jpg');
-    animation-delay: 3.08s;
+    animation-delay: 2.87s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage {
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
     background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen21.jpg');
-    animation-delay: 3.44s;
+    animation-delay: 3.16s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen8.jpg');
-animation-delay: 3.78s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen8.jpg');
+    animation-delay: 3.42s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen9.jpg');
-animation-delay: 4.1s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen9.jpg');
+    animation-delay: 3.65s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen10.jpg');
-animation-delay: 4.4s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen10.jpg');
+    animation-delay: 3.85s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen11.jpg.jpg');
-animation-delay: 4.68s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen11.jpg.jpg');
+    animation-delay: 4.02s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen22.jpg');
-animation-delay: 4.94s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen22.jpg');
+    animation-delay: 4.16s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen12.jpg');
-animation-delay: 5.18s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen12.jpg');
+    animation-delay: 4.27s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen13.jpg');
-animation-delay: 5.4s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen13.jpg');
+    animation-delay: 4.35s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen14.jpg');
-animation-delay: 5.6s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen14.jpg');
+    animation-delay: 4.4s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage {
-background-image: url('');
-animation-delay: 5.78s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('');
+    animation-delay: 4.45s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen15.jpg');
-animation-delay: 5.94s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen15.jpg');
+    animation-delay: 4.50s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen16.jpg');
-animation-delay: 6.08s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen16.jpg');
+    animation-delay: 4.55s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen17.jpg');
-animation-delay: 6.2s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen17.jpg');
+    animation-delay: 4.60s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen18.jpg');
-animation-delay: 5.3s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen18.jpg');
+    animation-delay: 4.65s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen20.jpg');
-animation-delay: 6.38s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen20.jpg');
+    animation-delay: 4.70s;
 }
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen19.jpg');
-animation-delay: 6.44s;
-}
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen5.gif');
-animation-delay: 6.48s;
-}
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen4.gif');
-animation-delay: 6.5s;
-}
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-   + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen2.gif');
-animation-delay: 6.52s;
-}
-#marvelImages > .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
- + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-  + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage + .marvelImage
-   + .marvelImage + .marvelImage {
-background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen1.gif');
-animation-delay: 6.64s;
+
+#marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
+    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen19.jpg');
+    animation-delay: 4.75s;
 }
