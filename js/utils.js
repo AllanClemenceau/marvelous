@@ -5,49 +5,6 @@
 //   }
 // })
 
-var t, pages, container, redPanel, title, titleLa, titleOus, isTitleVisible, isStapeThree;
-
-container = $("#main-container");
-redPanel = $("#red-panel");
-title = $("#main-container .title");
-titleLa = $("#main-container .title-la");
-titleOus = $("#main-container .title-ous");
-
-isTitleVisible = false;
-isStapeOne = false;
-isStapeTwo = false;
-isStapeThree = false;
-pages = [
-    "http://www.can-developing.com/marvelous/img/marvelScreen2.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen3.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen4.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen5.png",
-    "http://www.can-developing.com/marvelous/img/marvelScreen1.gif",
-    "http://www.can-developing.com/marvelous/img/marvelScreen6.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen7.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen2.gif",
-    "http://www.can-developing.com/marvelous/img/marvelScreen8.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen9.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen10.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen11.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen3.gif",
-    "http://www.can-developing.com/marvelous/img/marvelScreen12.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen13.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen14.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen4.gif",
-    "http://www.can-developing.com/marvelous/img/marvelScreen15.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen16.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen17.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen18.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen5.gif",
-    "http://www.can-developing.com/marvelous/img/marvelScreen19.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen20.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen21.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen22.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen23.jpg",
-    "http://www.can-developing.com/marvelous/img/marvelScreen24.jpg",
-];
-
 function simulateResize() {
     var evt = document.createEvent('UIEvents');
     evt.initUIEvent('resize', true, false, window, 0);
@@ -57,6 +14,7 @@ function simulateResize() {
 t = new TimelineLite({
     paused: true
 });
+
 
 function addPages() {
     $('#marvelImages > .marvelImage').addClass('translate');
@@ -111,22 +69,8 @@ $('.heroMap').click(function() {
         background: '#20346F',
         ease: Power1.easeIn
     }, 1);
-    t2.to('#' + id, 1, {
-        transform: 'scale(20)',
-        z: 0.1,
-        filter: 'brightness(0) invert(1)',
-        ease: Power1.easeIn
-    }, 0)
-    t2.from('#' + id + 'Box', 0, {
-            top: '0',
-            display: 'inherit',
-            opacity: '0'
-        })
-        .to('#' + id + 'Box', 0.5, {
-            top: '0',
-            display: 'inherit',
-            opacity: '1'
-        }, 1);
+    $('.inFront').removeClass('inFront');
+    $('#' + id + 'Box, #' + id).addClass('ouvert').removeClass('ferme');
 });
 
 $('.close').click(function() {
@@ -151,24 +95,7 @@ $('.close').click(function() {
         clearProps: 'color, background',
         ease: Power1.easeIn
     }, 1);
-    t3.from('#' + id + 'Box', 0, {
-            top: '0',
-            display: 'inherit',
-            opacity: '1'
-        })
-        .to('#' + id + 'Box', 0.5, {
-            top: '0',
-            display: 'none',
-            opacity: '0'
-        }, 0);
-    t3.to('#' + id, 1, {
-            transform: 'scale(1)',
-            z: 0.1,
-            ease: Power1.easeOut
-        }, 0.5)
-        .to('#' + id, 0, {
-            clearProps: 'filter, transform'
-        }, 1.5);
+    $('#' + id + 'Box, #' + id).addClass('ferme').addClass('inFront').removeClass('ouvert');
 });
 
 $(function() {

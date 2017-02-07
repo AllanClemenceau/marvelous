@@ -48,7 +48,6 @@ canvas, img {
     position: absolute;
     top: 0;
     left: 0;
-    overflow: scroll;
 }
 
 #header {
@@ -101,15 +100,6 @@ canvas, img {
     /*cursor: pointer;*/
 }
 
-map+img {
-    transition: filter 0.5s ease-in;
-}
-
-map:hover+img {
-    transition: filter 0.5s ease-out;
-    filter: brightness(500%);
-}
-
 #main-container {
     position: absolute;
     top: 0;
@@ -125,9 +115,11 @@ map:hover+img {
     position: absolute;
     background-color: #fff;
     left: 0;
+    top: 0;
     width: 100vw;
     height: 100vh;
-    display: none;
+    visibility: hidden;
+    z-index: 6;
 }
 
 .lightbox>div {
@@ -354,7 +346,7 @@ map:hover+img {
     padding: 0;
     margin: 0;
     list-style-type: none;
-    z-index: 5;
+    z-index: 6;
 }
 
 .menu__items li {
@@ -530,6 +522,72 @@ map:hover+img {
     animation: rotateStar 6.75s forwards;
 }
 
+.lightbox.ouvert {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+    transition-delay: 1s;
+}
+
+.lightbox.ferme {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+
+.hero  {
+    transform: translate3d(0, 0, 0) scale(1);
+    /*filter: none;*/
+}
+
+.hero.inFront {
+    z-index: 5;
+}
+
+.hero.ouvert {
+    animation: zoomHeroIn 1s forwards;
+    z-index: 5;
+}
+
+.hero.ferme {
+    animation: zoomHeroOut 1s forwards;
+}
+
+map+.hero {
+    transition: filter 0.5s ease-in;
+}
+
+map:hover+.hero {
+    transition: filter 0.5s ease-out;
+    filter: brightness(500%);
+}
+
+@keyframes zoomHeroIn {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    25% {
+        filter: brightness(0) invert(1);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) scale(20);
+        filter: brightness(0) invert(1);
+    }
+}
+
+@keyframes zoomHeroOut {
+    0% {
+        transform: translate3d(0, 0, 0) scale(20);
+        filter: brightness(0) invert(1);
+    }
+    75% {
+        filter: brightness(0) invert(1);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
 @keyframes rotateStar {
     0% {
         transform : translate3d(0, 100vh, 0) rotate(0);
@@ -575,7 +633,7 @@ map:hover+img {
         transform: translate3d(0, -500px, 0);
     }
     100% {
-        transform: translate3d(0, 15%, 0);
+        transform: translate3d(0, 50%, 0);
     }
 }
 @keyframes slideDown {
