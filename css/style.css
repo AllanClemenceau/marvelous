@@ -583,11 +583,11 @@ canvas, img {
     animation: zoomHeroOut 1s forwards;
 }
 
-map+.hero {
+.hero {
     transition: filter 0.5s ease-in;
 }
 
-map:hover+.hero {
+.hero:hover {
     transition: filter 0.5s ease-out;
     filter: brightness(500%);
 }

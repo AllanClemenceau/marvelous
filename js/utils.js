@@ -34,6 +34,9 @@ function addPages() {
         z:0.1,
         ease: Power1.easeIn
     }, 0);
+    t.to("#main-container", 0, {
+        display: 'none'
+    }, 6.75);
     t.to("#header > svg#star > path", 0.5, {
         clearProps: 'fill, stroke, strokeWidth, z',
         onComplete: simulateResize()
@@ -41,7 +44,7 @@ function addPages() {
     t.play();
 }
 
-$('.heroMap').click(function() {
+$('.hero').click(function() {
     var id = $(this).attr('id').replace("map-", "");
     var t2 = new TimelineLite();
     if ($('#menu').hasClass('menu--open')) {
@@ -90,6 +93,8 @@ $('.close').click(function() {
 });
 
 var scene = $('#scene').parallax();
+var width = window.width ? window.width : $(window).width();
+var height = window.innerHeight ? window.innerHeight : $(window).height();
 $(function() {
     // var x = 0.5;
     // var y = 0.5;
@@ -104,7 +109,8 @@ $(function() {
         scene.parallax('enable');
     });
 
-    if ($(window).width() < $(window).height()) {
+
+    if (width < height) {
         if (scene.data('mode') === 'cursor') {
             scene.parallax('scalar', 75, 8);
         } else {
@@ -118,7 +124,7 @@ $(function() {
         }
     }
 
-    $('map').imageMapResize();
+    // $('map').imageMapResize();
 });
 
 $( window ).resize(function() {
