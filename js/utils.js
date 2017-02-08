@@ -43,9 +43,13 @@ function addPages() {
     }, 6.75);
     t.play();
 }
-
-$('.hero').click(function() {
-    var id = $(this).attr('id').replace("map-", "");
+$('.hero polygon').hover(function() {
+    $(this).parent().addClass('bright');
+}, function() {
+    $(this).parent().removeClass('bright');
+});
+$('.hero polygon').click(function() {
+    var id = $(this).parent().attr('id').replace("map-", "");
     var t2 = new TimelineLite();
     if ($('#menu').hasClass('menu--open')) {
         $('#menu .trigger').click();
@@ -96,20 +100,14 @@ var scene = $('#scene').parallax();
 var width = window.width ? window.width : $(window).width();
 var height = window.innerHeight ? window.innerHeight : $(window).height();
 $(function() {
-    // var x = 0.5;
-    // var y = 0.5;
-    // for (i = 0; i <= 24; i++) {
-    //     console.log(x);
-    //     y = y - 0.03;
-    //     // console.log(y);
-    //     x = Math.round((x + y) * 100) / 100;
-    // }
     Pace.on('done', function() {
         addPages();
         scene.parallax('enable');
     });
 
-
+    // if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+    //     $('.hero').addClass('iOS');
+    // }
     if (width < height) {
         if (scene.data('mode') === 'cursor') {
             scene.parallax('scalar', 75, 8);
@@ -123,8 +121,6 @@ $(function() {
             scene.parallax('scalar', 3, 13);
         }
     }
-
-    // $('map').imageMapResize();
 });
 
 $( window ).resize(function() {

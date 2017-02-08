@@ -167,6 +167,9 @@ canvas, img {
     color: #fff;
     opacity: 0;
     overflow: hidden;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #header .title {
@@ -562,12 +565,34 @@ canvas, img {
     transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
+.iOS {
+}
+
+.hero {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: filter 0.5s ease-in;
+    transform: translate3d(0,0,0) scale(1);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.bright {
+    filter: brightness(200%);
+    transition: filter 0.5s ease-out;
+}
+
 .hero  {
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    transform: translate3d(0, 0, 0) scale(1);
-    /*filter: none;*/
+    transition: filter 0.5s ease-in;
+    transform: translate3d(0,0,0) scale(1);
 }
 
 .hero.inFront {
@@ -583,38 +608,29 @@ canvas, img {
     animation: zoomHeroOut 1s forwards;
 }
 
-.hero {
-    transition: filter 0.5s ease-in;
-}
-
-.hero:hover {
-    transition: filter 0.5s ease-out;
-    filter: brightness(500%);
-}
-
 @keyframes zoomHeroIn {
     0% {
-        transform: translate3d(0, 0, 0) scale(1);
+        transform: scale(1);
     }
     25% {
         filter: brightness(0) invert(1);
     }
     100% {
-        transform: translate3d(0, 0, 0) scale(20);
+        transform: scale(20);
         filter: brightness(0) invert(1);
     }
 }
 
 @keyframes zoomHeroOut {
     0% {
-        transform: translate3d(0, 0, 0) scale(20);
+        transform: scale(20);
         filter: brightness(0) invert(1);
     }
     75% {
         filter: brightness(0) invert(1);
     }
     100% {
-        transform: translate3d(0, 0, 0) scale(1);
+        transform: scale(1);
     }
 }
 
