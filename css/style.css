@@ -30,25 +30,25 @@ canvas, img {
 
 @media all and (orientation:landscape) {
     #scene, .layer {
-        width: 120vw;
-        height: calc(120vw / 1.9);
+        width: 150vw;
+        height: calc(150vw / 1.6);
     }
     .parallaxContainer {
         position: absolute;
-        top: -5.5vw;
-        left: calc(-19vw / 1.9);
+        top: -20vw;
+        left: calc(-19vw / 1.6);
     }
 }
 
 @media all and (orientation:portrait) {
     #scene, .layer {
-        height: 120vh;
-        width: calc(120vh * 1.9);
+        height: 150vh;
+        width: calc(150vh * 1.6);
     }
     .parallaxContainer {
         position: absolute;
         top: -7vh;
-        left: calc(-45vh * 1.9);
+        left: calc(-55vh * 1.6);
     }
 }
 
@@ -58,8 +58,25 @@ canvas, img {
     height: 100vh;
     width: 100vw;
 }
-.layer {
-    background: url('../img/RuelleSombre2.jpg');
+.layer:first-child {
+    background: url('../img/street_site_5.png') no-repeat;
+    background-size: 100% 100%;
+    top: 10vw !important;
+}
+.layer + .layer {
+    background: url('../img/street_site_4.png') no-repeat;
+    background-size: 100% 100%;
+}
+.layer + .layer + .layer {
+    background: url('../img/street_site_3.png') no-repeat;
+    background-size: 100% 100%;
+}
+.layer + .layer + .layer + .layer {
+    background: url('../img/street_site_2.png') no-repeat;
+    background-size: 100% 100%;
+}
+.layer + .layer + .layer + .layer + .layer {
+    background: url('../img/street_site_1.png') no-repeat;
     background-size: 100% 100%;
 }
 #scene {
@@ -111,8 +128,8 @@ canvas, img {
 
 #batman {
     position: absolute;
-    bottom: 35%;
-    left: 50%;
+    bottom: 15%;
+    left: 45%;
     width: 10%;
     height: auto;
     /*cursor: pointer;*/
@@ -566,6 +583,12 @@ canvas, img {
 }
 
 .iOS {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .hero {
@@ -574,12 +597,6 @@ canvas, img {
     user-select: none;
     transition: filter 0.5s ease-in;
     transform: translate3d(0,0,0) scale(1);
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 
 .bright {
@@ -759,86 +776,86 @@ canvas, img {
 }
 
 #marvelImages>.marvelImage:first-child {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen3.jpg');
+    background-image: url('../img/marvelScreen3.jpg');
 }
 
 #marvelImages>.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen24.jpg');
+    background-image: url('../img/marvelScreen24.jpg');
     animation-delay: 0.5s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen2.jpg');
+    background-image: url('../img/marvelScreen2.jpg');
     animation-delay: 0.97s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen4.jpg');
+    background-image: url('../img/marvelScreen4.jpg');
     animation-delay: 1.41s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen5.png');
+    background-image: url('../img/marvelScreen5.png');
     animation-delay: 1.82s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen23.jpg');
+    background-image: url('../img/marvelScreen23.jpg');
     animation-delay: 2.2s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen6.jpg');
+    background-image: url('../img/marvelScreen6.jpg');
     animation-delay: 2.55s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen7.jpg');
+    background-image: url('../img/marvelScreen7.jpg');
     animation-delay: 2.87s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen21.jpg');
+    background-image: url('../img/marvelScreen21.jpg');
     animation-delay: 3.16s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen8.jpg');
+    background-image: url('../img/marvelScreen8.jpg');
     animation-delay: 3.42s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen9.jpg');
+    background-image: url('../img/marvelScreen9.jpg');
     animation-delay: 3.65s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen10.jpg');
+    background-image: url('../img/marvelScreen10.jpg');
     animation-delay: 3.85s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen11.jpg.jpg');
+    background-image: url('../img/marvelScreen11.jpg');
     animation-delay: 4.02s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen22.jpg');
+    background-image: url('../img/marvelScreen22.jpg');
     animation-delay: 4.16s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen12.jpg');
+    background-image: url('../img/marvelScreen12.jpg');
     animation-delay: 4.27s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen13.jpg');
+    background-image: url('../img/marvelScreen13.jpg');
     animation-delay: 4.35s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen14.jpg');
+    background-image: url('../img/marvelScreen14.jpg');
     animation-delay: 4.4s;
 }
 
@@ -848,32 +865,32 @@ canvas, img {
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen15.jpg');
+    background-image: url('../img/marvelScreen15.jpg');
     animation-delay: 4.50s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen16.jpg');
+    background-image: url('../img/marvelScreen16.jpg');
     animation-delay: 4.55s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen17.jpg');
+    background-image: url('../img/marvelScreen17.jpg');
     animation-delay: 4.60s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen18.jpg');
+    background-image: url('../img/marvelScreen18.jpg');
     animation-delay: 4.65s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen20.jpg');
+    background-image: url('../img/marvelScreen20.jpg');
     animation-delay: 4.70s;
 }
 
 #marvelImages>.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage+.marvelImage {
-    background-image: url('http://www.can-developing.com/marvelous/img/marvelScreen19.jpg');
+    background-image: url('../img/marvelScreen19.jpg');
     animation-delay: 4.75s;
 }
 

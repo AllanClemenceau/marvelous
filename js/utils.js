@@ -20,6 +20,9 @@ function addPages() {
     $('#marvelImages > .marvelImage').addClass('translate');
     $('#red-panel, #main-container .title, #main-container .title-la, #main-container .title-ous').addClass('fadeIn');
     $('#headerSvg > path, #headerSvg, #header > .title, #headerSvg > path, #main-container, #header > svg#star > path, #header > svg#star').addClass('phaseTwo');
+    t.to('body', 0, {
+        backgroundColor: '#000'
+    }, 1);
     t.to('#headerSvg > path', 0, {
         fill: '#e23636',
         z:0.1
@@ -43,11 +46,13 @@ function addPages() {
     }, 6.75);
     t.play();
 }
+
 $('.hero polygon').hover(function() {
     $(this).parent().addClass('bright');
 }, function() {
     $(this).parent().removeClass('bright');
 });
+
 $('.hero polygon').click(function() {
     var id = $(this).parent().attr('id').replace("map-", "");
     var t2 = new TimelineLite();
@@ -99,46 +104,58 @@ $('.close').click(function() {
 var scene = $('#scene').parallax();
 var width = window.width ? window.width : $(window).width();
 var height = window.innerHeight ? window.innerHeight : $(window).height();
+
 $(function() {
     Pace.on('done', function() {
         addPages();
         scene.parallax('enable');
     });
 
-    // if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-    //     $('.hero').addClass('iOS');
-    // }
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+        $('.hero').addClass('iOS');
+    }
     if (width < height) {
         if (scene.data('mode') === 'cursor') {
             scene.parallax('scalar', 75, 8);
         } else {
-            scene.parallax('scalar', 23, 3);
+            scene.parallax('scalar', 70, 20);
         }
     } else {
         if (scene.data('mode') === 'cursor') {
             scene.parallax('scalar', 16, 17);
         } else {
-            scene.parallax('scalar', 3, 13);
+            scene.parallax('scalar', 30 , 35);
         }
     }
 });
 
 $( window ).resize(function() {
+  console.log(scene);
     if ($(window).width() < $(window).height()) {
-        $('#scene, .layer').css({'height' : '120vh', 'width' : 'calc(120vh * 1.9)'});
-        $('parallaxContainer').css({'top' : '-7vh', 'left' : 'calc(-45vh * 1.9)'});
+        $('#scene, .layer').css({'height' : '150vh', 'width' : 'calc(150vh * 1.6)'});
+        $('.parallaxContainer').css({'top' : '-26vh', 'left' : 'calc(-55.5vh * 1.6)'});
         if (scene.data('mode') === 'cursor') {
             scene.parallax('scalar', 75, 8);
         } else {
-            scene.parallax('scalar', 23, 3);
+            scene.parallax('scalar', 70, 20);
         }
     } else {
-        $('#scene, .layer').css({'width' : '120vw', 'height' : 'calc(120vw / 1.9)'});
-        $('parallaxContainer').css({'top' : '-5.5vw', 'left' : 'calc(-19vw / 1.9)'});
-        if (scene.data('mode') === 'cursor') {
-            scene.parallax('scalar', 16, 17);
+        if ($(window).height() < ($(window).width() / 1.6)) {
+            $('#scene, .layer').css({'width' : '150vw', 'height' : 'calc(150vw / 1.6)'});
+            $('.parallaxContainer').css({'top' : '-20vw', 'left' : 'calc(-37vw / 1.6)'});
+            if (scene.data('mode') === 'cursor') {
+                scene.parallax('scalar', 16, 17);
+            } else {
+                scene.parallax('scalar', 30 , 35);
+            }
         } else {
-            scene.parallax('scalar', 3, 13);
+            $('#scene, .layer').css({'height' : '150vh', 'width' : 'calc(150vh * 1.6)'});
+            $('.parallaxContainer').css({'top' : '-25vh', 'left' : 'calc(-35vh * 1.6)'});
+            if (scene.data('mode') === 'cursor') {
+                scene.parallax('scalar', 75, 8);
+            } else {
+                scene.parallax('scalar', 45, 30);
+            }
         }
     }
 });
