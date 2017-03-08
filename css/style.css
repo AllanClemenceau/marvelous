@@ -583,18 +583,18 @@ canvas, img {
 }
 
 .iOS {
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 
 .hero {
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
     transition: filter 0.5s ease-in;
     transform: translate3d(0,0,0) scale(1);
 }
@@ -602,14 +602,6 @@ canvas, img {
 .bright {
     filter: brightness(200%);
     transition: filter 0.5s ease-out;
-}
-
-.hero  {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    transition: filter 0.5s ease-in;
-    transform: translate3d(0,0,0) scale(1);
 }
 
 .hero.inFront {

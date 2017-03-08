@@ -5,6 +5,8 @@
 //   }
 // })
 
+window.viewportUnitsBuggyfill.init();
+
 function simulateResize() {
     var evt = document.createEvent('UIEvents');
     evt.initUIEvent('resize', true, false, window, 0);
@@ -101,63 +103,106 @@ $('.close').click(function() {
     $('#' + id + 'Box, #' + id).addClass('ferme').addClass('inFront').removeClass('ouvert');
 });
 
+
 var scene = $('#scene').parallax();
 var width = window.width ? window.width : $(window).width();
 var height = window.innerHeight ? window.innerHeight : $(window).height();
+var currentRatio = width/height;
+
+// if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+//     $('.hero').addClass('iOS');
+// }
+
+// if (Hammer.HAS_TOUCHEVENTS) {
+//     alert('toto');
+// }
+
+// Pretty simple huh?
+// scene.parallax();
+
+// Check for orientation support.
+// setTimeout(function() {
+// 	if (scene.data('mode') === 'cursor') {
+//       alert('tata');
+// 	}
+// },1000);
+
+var isAccelerationDevice = false;
+window.addEventListener("deviceorientation", function(event) {
+  if (event.alpha !== null || event.beta !== null || event.gamma !== null) {
+      isAccelerationDevice = true;
+  }
+}, true);
 
 $(function() {
     Pace.on('done', function() {
         addPages();
-        scene.parallax('enable');
-    });
-
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-        $('.hero').addClass('iOS');
-    }
-    if (width < height) {
-        if (scene.data('mode') === 'cursor') {
-            scene.parallax('scalar', 75, 8);
-        } else {
-            scene.parallax('scalar', 70, 20);
-        }
-    } else {
-        if (scene.data('mode') === 'cursor') {
-            scene.parallax('scalar', 16, 17);
-        } else {
-            scene.parallax('scalar', 30 , 35);
-        }
-    }
-});
-
-$( window ).resize(function() {
-  console.log(scene);
-    if ($(window).width() < $(window).height()) {
-        $('#scene, .layer').css({'height' : '150vh', 'width' : 'calc(150vh * 1.6)'});
-        $('.parallaxContainer').css({'top' : '-26vh', 'left' : 'calc(-55.5vh * 1.6)'});
-        if (scene.data('mode') === 'cursor') {
-            scene.parallax('scalar', 75, 8);
-        } else {
-            scene.parallax('scalar', 70, 20);
-        }
-    } else {
-        if ($(window).height() < ($(window).width() / 1.6)) {
-            $('#scene, .layer').css({'width' : '150vw', 'height' : 'calc(150vw / 1.6)'});
-            $('.parallaxContainer').css({'top' : '-20vw', 'left' : 'calc(-37vw / 1.6)'});
-            if (scene.data('mode') === 'cursor') {
-                scene.parallax('scalar', 16, 17);
-            } else {
-                scene.parallax('scalar', 30 , 35);
-            }
-        } else {
+        scene.parallax();
+        if (width < height) {
             $('#scene, .layer').css({'height' : '150vh', 'width' : 'calc(150vh * 1.6)'});
-            $('.parallaxContainer').css({'top' : '-25vh', 'left' : 'calc(-35vh * 1.6)'});
-            if (scene.data('mode') === 'cursor') {
-                scene.parallax('scalar', 75, 8);
+            $('.parallaxContainer').css({'top' : '-26vh', 'left' : 'calc(-55.5vh * 1.6)'});
+            if (isAccelerationDevice) {
+                scene.parallax('scalar', 25, 12);
             } else {
-                scene.parallax('scalar', 45, 30);
+                scene.parallax('scalar', 70, 20);
+            }
+        } else {
+            if (height < (width / 1.6)) {
+                $('#scene, .layer').css({'width' : '150vw', 'height' : 'calc(150vw / 1.6)'});
+                $('.parallaxContainer').css({'top' : '-20vw', 'left' : 'calc(-37vw / 1.6)'});
+                if (isAccelerationDevice) {
+                    scene.parallax('scalar', 14, 20);
+                } else {
+                    scene.parallax('scalar', 30 , 35);
+                }
+            } else {
+                $('#scene, .layer').css({'height' : '150vh', 'width' : 'calc(150vh * 1.6)'});
+                $('.parallaxContainer').css({'top' : '-25vh', 'left' : 'calc(-35vh * 1.6)'});
+                if (isAccelerationDevice) {
+                    scene.parallax('scalar', 8, 8);
+                } else {
+                    scene.parallax('scalar', 45, 30);
+                }
             }
         }
-    }
+
+
+        $( window ).resize(function() {
+            width = window.width ? window.width : $(window).width();
+            height = window.innerHeight ? window.innerHeight : $(window).height();
+
+            if (width < height) {
+                // console.log('bim');
+                $('#scene, .layer').css({'height' : '150vh', 'width' : 'calc(150vh * 1.6)'});
+                $('.parallaxContainer').css({'top' : '-26vh', 'left' : 'calc(-55.5vh * 1.6)'});
+                if (isAccelerationDevice) {
+                    scene.parallax('scalar', 25, 12);
+                } else {
+                    scene.parallax('scalar', 70, 20);
+                }
+            } else {
+                if (height < (width / 1.6)) {
+                    // console.log('bam');
+                    $('#scene, .layer').css({'width' : '150vw', 'height' : 'calc(150vw / 1.6)'});
+                    $('.parallaxContainer').css({'top' : '-20vw', 'left' : 'calc(-37vw / 1.6)'});
+                    if (isAccelerationDevice) {
+                        scene.parallax('scalar', 14, 20);
+                    } else {
+                        scene.parallax('scalar', 30 , 35);
+                    }
+                } else {
+                    // console.log('boum');
+                    $('#scene, .layer').css({'height' : '150vh', 'width' : 'calc(150vh * 1.6)'});
+                    $('.parallaxContainer').css({'top' : '-25vh', 'left' : 'calc(-35vh * 1.6)'});
+                    if (isAccelerationDevice) {
+                        scene.parallax('scalar', 8, 8);
+                    } else {
+                        scene.parallax('scalar', 45, 30);
+                    }
+                }
+            }
+        });
+    });
 });
 
 
